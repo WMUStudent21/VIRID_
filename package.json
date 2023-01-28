@@ -1,0 +1,10 @@
+{
+  "name": "VIRID_",
+  "lockfileVersion": 3,
+  "requires": true,
+  "type": "module",
+  "packages": {},
+  "dependencies": {
+    "firebase": "^9.16.0"
+  }
+}
