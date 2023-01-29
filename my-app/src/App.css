@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #b0ecf3;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,60 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  position: relative;
+  width: 50%;
+  margin: 20px;
+}
+
+/* Make the image responsive */
+.container img {
+  float: left;
+  width:  70%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn1 {
+  position: absolute;
+  top: 25%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(96, 7, 131);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn2 {
+  position: absolute;
+  top: 75%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(44, 133, 6);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+
+.img {
+  float: left;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
 }

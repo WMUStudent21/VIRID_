@@ -19,15 +19,39 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-function writeUserData(userId, name, coordinate, imageURL) {
+function writeVPointData(coordinate, imageURL, difficulty) {
     const db = getDatabase();
-    const reference = ref(db, 'users/' + userId);
+    const reference = ref(db, 'VPoint/' + coordinate);
 
     set(reference, {
-        username: name,
-        coordinate: coordinate,
-        profile_pic: imageURL
+        profile_pic: imageURL,
+        difficulty: difficulty,
+        coordinate: coordinate
     });
 }
 
-writeUserData("dummy1", "Hello", "19.0760° N, 72.8777° E", "myURL");
+writeVPointData("19D034427A72D859759", "myURL", "Easy");
+writeVPointData("19D036519A72D856597", "myURL", "Medium");
+
+// function readVPointData(coordinate, imageURL, difficulty) {
+//     const db = getDatabase();
+//     const reference = ref(db, 'VPoint/' + coordinate);
+
+//     set(reference, {
+//         profile_pic: imageURL,
+//         difficulty: difficulty,
+//         coordinate: coordinate
+//     });
+// }
+
+
+// Get a database reference to our posts
+const db = getDatabase();
+const ref1 = db.ref('VPoint');
+
+// Attach an asynchronous callback to read the data at our posts reference
+ref1.on('value', (snapshot) => {
+  console.log(snapshot.val());
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject.name);
+}); 

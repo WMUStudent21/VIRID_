@@ -14,26 +14,24 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-function writeVPointData(coordinate, imageURL, difficulty) {
-    const db = getDatabase();
-    const reference = ref(db, 'VPoint/' + coordinate);
-
-    set(reference, {
-        profile_pic: imageURL,
-        difficulty: difficulty,
-        coordinate: coordinate
-    });
-}
-
-writeVPointData("19D034427A72D859759XYZ", "myURL123", "Easy");
-
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <div class="container">
+          <img src = {require('./Pictures/Easy.png')} alt = "Error" />
+          <button class="btn1">Directions</button>
+          <button class="btn2">Submit</button>
+      </div>
 
-      <p>Hello World</p>
+      <div class="container">
+          <img src = {require('./Pictures/Medium.png')} alt = "Error" />
+          <button class="btn1">Directions</button>
+          <button class="btn2">Submit</button>
+      </div>
+
+
       </header>
     </div>
   );
