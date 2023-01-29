@@ -41,7 +41,7 @@ function App() {
             </>
           )}
 
-          <div><Link  to="/add_poi">Add Data</Link></div>
+          {/* <div><Link  to="/add_poi">Add Data</Link></div> */}
         </div>
       <header className="App-header">
       <div class="container">

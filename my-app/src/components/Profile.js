@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 
 
 const firebaseConfig = {
@@ -36,7 +36,7 @@ const Profile = () => {
     return (
         isAuthenticated && (
             <article>
-                <h2>{user?.email} </h2>
+                <h2 style = {{color:"black"}}>{user?.name} </h2>
             </article>
 
         )
