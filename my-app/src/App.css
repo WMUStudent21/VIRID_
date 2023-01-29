@@ -52,15 +52,10 @@
 }
 
 /* Style the button and place it in the middle of the container/image */
-.container .btn1 {
-  position: absolute;
-  top: 25%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: rgb(96, 7, 131);
-  color: white;
-  font-size: 16px;
+.btn1 {
+  background-color: white;
+  color:  rgb(44, 133, 6);
+  font-size: 30px;
   padding: 12px 24px;
   border: none;
   cursor: pointer;
@@ -69,7 +64,7 @@
 
 .container .btn2 {
   position: absolute;
-  top: 75%;
+  top: 50%;
   left: 90%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);

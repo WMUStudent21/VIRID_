@@ -5,6 +5,7 @@ import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link} from 'react-router-dom';
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaDcgA8Yo1o14zdWp6JNYL2N2QTnJiRaU",
@@ -16,6 +17,22 @@ const firebaseConfig = {
   measurementId: "G-QVSCYY2PGC"
 };
 
+function getVpoints() {
+  const db = getDatabase()
+
+  const vRef = ref(db, "Vpoint")
+
+  onValue(vRef, (snap) => {
+    snap.forEach(function (element) {  
+    
+    })
+    })
+  
+  }
+    
+
+
+
 const app = initializeApp(firebaseConfig);
 
 function App() {
@@ -25,12 +42,20 @@ function App() {
   }
   
   const {isLoading, error} = useAuth0();
+  const db = getDatabase()
+
+  const vRef = ref(db, "Vpoint")
+
+  getVpoints();
+  
+  
+
 
   return (
     <div className="App">
         <div class = "navbar">
           <img class = "logo" src = {require('./Pictures/Logo.png')} alt = "Error"/>
-          <div id="left_wrapper">
+          <div id="right_wrapper">
           {error && <p>Authentication Error</p>}
           {!error && isLoading && <p>Loading...</p>}
           {!error && !isLoading && (
@@ -41,31 +66,37 @@ function App() {
             </>
           )}
           </div>
-          <div id = "right_wrapper"> 
-          <div id = "nav-right">
+          
           {/* <button class="btn3" onClick = {sayHello} >Sign in</button> */}
           
 
-      <Link  to="/add_poi" style={{ textDecoration: 'none', color: 'black', float: 'right', border: 'solid black', backGroundColor: 'black'}}>Add Data</Link>
+      
+      
       </div>
-      </div>
-      </div>
+
+
       
         
       <header className="App-header">
+        {/* Write loop to go over all vpoints */}
+        
+
       <div class="container">
           <img src = {require('./Pictures/Easy.png')} alt = "Error" />
-          <button class="btn1">Directions</button>
-          <button class="btn2" onClick = {sayThanks}>Submit</button>
+          
+          <Link  to="/add_poi" >
+          <button class="btn2" onClick = {sayThanks}>Submit</button></Link>
+      </div>
+      <div class="container">
+          <img src = {require('./Pictures/Medium.png')} alt = "Error" />
+          
+          <Link to="/add_poi">
+          <button class="btn2">Submit</button></Link>
       </div>
       <div>
       <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/a1040528-6548-4414-ada8-daa9e37f6dfe/page/vypDD"></iframe>
       </div>
-      <div class="container">
-          <img src = {require('./Pictures/Medium.png')} alt = "Error" />
-          <button class="btn1">Directions</button>
-          <button class="btn2">Submit</button>
-      </div>
+      
 
 
       </header>
