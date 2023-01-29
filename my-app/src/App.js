@@ -73,9 +73,6 @@ function App() {
       
       
       </div>
-
-
-      
         
       <header className="App-header">
         {/* Write loop to go over all vpoints */}
@@ -91,9 +88,10 @@ function App() {
           <img src = {require('./Pictures/Medium.png')} alt = "Error" />
           
           <Link to="/add_poi">
-          <button class="btn2">Submit</button></Link>
+          <button  onClick = {sayThanks} class="btn2">Submit</button></Link>
       </div>
-      <div>
+      <div class="footer">
+        <h1>V-Points</h1>
       <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/a1040528-6548-4414-ada8-daa9e37f6dfe/page/vypDD"></iframe>
       </div>
       
