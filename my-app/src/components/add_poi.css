@@ -1,0 +1,53 @@
+body {
+
+    color: white
+}
+h1 {
+    font-size: 100px;
+    font-weight: 500;
+    color: white; 
+}
+
+.App_Poi {
+    background-color: whitesmoke;
+    height: 100vh; 
+    width: 100%;
+
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+form {
+    background-color: #333;
+    border: solid white;
+}
+
+.flex-column * {
+    margin: 10px 0px 10px 0px;
+}
+
+.center_content {
+    background-color: #222;
+    text-align: center;
+    margin: auto;
+    height: 100vh;
+    width: 50vw; 
+}
+
+
+
+
+
+.flex-navbar img {
+    float: left;
+    border-radius: 50%;
+    height: 12%;
+    padding: 10px;
+    margin: 10px; 
+}

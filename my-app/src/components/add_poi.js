@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set} from "firebase/database";
 import {getAuth} from "firebase/auth";
+import "./add_poi.css"
 
 
 const firebaseConfig = {
@@ -87,9 +88,13 @@ function add_data(e) {
 }
 
 function AddPoi(props) {
-    return (<div>
+    return (
+    <div className="App_Poi">
+        <div class= "center_content">
         <h1>VIRID</h1>
-        <form   action="/" onSubmit={add_data}>
+        
+        <form action="/" onSubmit={add_data}>
+        <div class="flex-column">
             <input type="file" onChange={encodeImage} id="selector"/>
             <select name="" id="diff">
                 <option value="Easy">Easy</option>
@@ -99,8 +104,13 @@ function AddPoi(props) {
             <input type="text" id ="lat" />
             <input type="text" id = "long"/>
             <input type="submit" id="sub"/>
+        </div>
         </form>
+     
+        </div>
+    
     </div>
+    
     
     
     
