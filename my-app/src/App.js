@@ -20,8 +20,8 @@ const app = initializeApp(firebaseConfig);
 
 function App() {
   
-  function sayHello() {
-    alert('Hello');
+  function sayThanks() {
+    alert('Submitted. Thank you!');
   }
   
   const {isLoading, error} = useAuth0();
@@ -52,10 +52,10 @@ function App() {
       <header className="App-header">
       <div class="container">
           <img src = {require('./Pictures/Easy.png')} alt = "Error" />
-          <button class="btn1" onClick = {calcRoute} >Directions</button>
-          <button class="btn2">Submit</button>
+          <button class="btn1">Directions</button>
+          <button class="btn2" onClick = {sayThanks}>Submit</button>
       </div>
-      <div float='right'>
+      <div>
       <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/a1040528-6548-4414-ada8-daa9e37f6dfe/page/vypDD"></iframe>
       </div>
       <div class="container">
