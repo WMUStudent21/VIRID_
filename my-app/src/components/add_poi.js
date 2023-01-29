@@ -3,10 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set} from "firebase/database";
 import {getAuth} from "firebase/auth";
 
-const [diff, setDiff]  = useState("1");
-const [long, setLong] = useState(0);
-const [lat, setLat] = useState(0);
-const [binary, setBinary] = useState(0);
 
 const firebaseConfig = {
     apiKey: "AIzaSyDaDcgA8Yo1o14zdWp6JNYL2N2QTnJiRaU",
@@ -22,12 +18,13 @@ const firebaseConfig = {
 
 let file_encoding = null; 
 
-function encodeImage(e) {
-    let ind_file = e.files[0]; // grab file object from files array
+function encodeImage() {
+   
+    let ind_file = document.getElementById("selector").files[0] // grab file object from files array
     const file_Reader = new FileReader();
-    file_Reader.onloadend(() => {
+    file_Reader.onloadend = () => {
         file_encoding = file_Reader.result;
-    })
+    }
     file_Reader.readAsDataURL(ind_file)
 }
 function makeCoordinates(lat, long) {
@@ -70,18 +67,18 @@ function convert_value(value) {
     return finished_value
 }
 
-function add_data() {
-    
+function add_data(e) {
+    e.preventDefault();
     const db = getDatabase();
-    diff_value = document.getElementById("diff").value;
-    long_value = document.getElementById("long").value;
-    lat_value = document.getElementById("lat").value;
-    let complete_value = makeCoordinates(lat, long);
-    let final_diff = convert_value(diff_value);
+    let diff_value = document.getElementById("diff").value;
+    let long_value = document.getElementById("long").value;
+    let lat_value = document.getElementById("lat").value;
+    let complete_value = makeCoordinates(lat_value, long_value);
+   
     const db_ref = ref(db, "Vpoint/" + complete_value);
     set(db_ref, {
         coordinate: complete_value,
-        difficulty: final_diff,
+        difficulty: diff_value,
         image:file_encoding
         
     })
@@ -89,12 +86,16 @@ function add_data() {
 
 }
 
-function addPoi(props) {
+function AddPoi(props) {
     return (<div>
         <h1>VIRID</h1>
-        <form action="POST" method="POST" onSubmit={add_data()}>
-            <input type="file" onChange={encodeImage(this)} id="selector"/>
-            <input type="range" id = "diff" min = "1" max = "3"/>
+        <form   action="/" onSubmit={add_data}>
+            <input type="file" onChange={encodeImage} id="selector"/>
+            <select name="" id="diff">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
             <input type="text" id ="lat" />
             <input type="text" id = "long"/>
             <input type="submit" id="sub"/>
@@ -106,4 +107,4 @@ function addPoi(props) {
     )
 }
 
-export default directions
+export default AddPoi
