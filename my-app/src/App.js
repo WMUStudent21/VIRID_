@@ -29,20 +29,26 @@ function App() {
   return (
     <div className="App">
         <div class = "navbar">
-          <img class = "logo" src = {require('./Pictures/Logo.png')} alt = "Error"/> 
+          <img class = "logo" src = {require('./Pictures/Logo.png')} alt = "Error"/>
+          <div id = "right_wrapper"> 
+          <div id = "nav-right">
           {/* <button class="btn3" onClick = {sayHello} >Sign in</button> */}
           {error && <p>Authentication Error</p>}
           {!error && isLoading && <p>Loading...</p>}
           {!error && !isLoading && (
             <>
-              <LoginButton class="btn3"/>
-              <LogoutButton class="btn3"/>
-              <Profile/>
+              <LoginButton style={{float: 'right'}} class="btn3"/>
+              <LogoutButton style={{float: 'right'}} class="btn3"/>
+              <Profile style={{float: 'right'}}/>
             </>
           )}
 
-          {/* <div><Link  to="/add_poi">Add Data</Link></div> */}
-        </div>
+      <Link  to="/add_poi" style={{ textDecoration: 'none', color: 'black', float: 'right', border: 'solid black', backGroundColor: 'black'}}>Add Data</Link>
+      </div>
+      </div>
+      </div>
+      
+        
       <header className="App-header">
       <div class="container">
           <img src = {require('./Pictures/Easy.png')} alt = "Error" />
@@ -59,6 +65,7 @@ function App() {
 
       </header>
     </div>
+    
   );
 }
 

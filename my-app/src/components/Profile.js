@@ -26,7 +26,7 @@ const Profile = () => {
         });
     }
 
-    function encodeKey(s) { return encodeURIComponent(s).replace('.', '%2E'); }
+    function encodeKey(s) { return encodeURIComponent(s).replaceAll('.', '%2E'); }
 
     const { user, isAuthenticated} = useAuth0();
     if (isAuthenticated) {
