@@ -30,30 +30,32 @@ function writeUserData(userId, name, coordinate, imageURL) {
     });
 }
 
-function retrieveData() {
+function retrieveCoordinates() {
   const db = getDatabase();
   const Ref = ref(db, "VPoint/");
 
   const list = [];
   onValue(Ref, snapshot => {
     snapshot.forEach(function(element){
-      var string = element.ref._path.pieces_[1];
+      var coord = JSON.stringify(element.val().coordinate);
+      var diff = JSON.stringify(element.val().difficulty);
+      var profile_pic = JSON.stringify(element.val().profile_pic);
       for (let i = 0; i < 2; i++) {
-        string = string.replace("D",".");
-        string = string.replace("A",",");
+        coord = coord.replace("D",".");
+        coord = coord.replace("A",",");
       }
-      string = string.split(',');
-      list.push(string);
+      list.push(coord.split(','), diff, profile_pic);
     });
   });
   return list;
 };
 
-const x = retrieveData();
 
 
-
+const x = retrieveCoordinates();
 const dummy_start = ["19.021767", "72.857851"]
+
+console.log(x);
 // API KEY = AIzaSyCb5zQfEwi3KzCaMDjctIOEX89V5g9joSs
 
 // function distance(current_location,destination_coordinates) {
