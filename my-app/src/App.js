@@ -1,6 +1,9 @@
 import './App.css';
 import { initializeApp } from "firebase/app";
-
+import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton';
+import Profile from './components/Profile';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaDcgA8Yo1o14zdWp6JNYL2N2QTnJiRaU",
@@ -14,19 +17,29 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-
-
 function App() {
   
   function sayHello() {
     alert('Hello');
   }
   
+  const {isLoading, error} = useAuth0();
+
   return (
     <div className="App">
         <div class = "navbar">
           <img class = "logo" src = {require('./Pictures/Logo.png')} alt = "Error"/> 
-          <button class="btn3" onClick = {sayHello} >Sign in</button>
+          {/* <button class="btn3" onClick = {sayHello} >Sign in</button> */}
+          {error && <p>Authentication Error</p>}
+          {!error && isLoading && <p>Loading...</p>}
+          {!error && !isLoading && (
+            <>
+              <LoginButton class="btn3"/>
+              <LogoutButton class="btn3"/>
+              <Profile/>
+            </>
+          )}
+
           <button class="btn4" onClick = {sayHello} >Contact Us</button>
         </div>
       <header className="App-header">
