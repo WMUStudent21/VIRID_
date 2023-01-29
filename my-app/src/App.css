@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #b0ecf3;
+  background-color: rgb(185, 185, 173);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -91,4 +91,51 @@
   width:  100px;
   height: 100px;
   object-fit: cover;
+}
+
+
+.navbar{
+  width: 100%;
+  background-color: white;
+
+}
+
+.navbar .btn3 {
+  position: absolute;
+  top: 7%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.navbar .btn4 {
+  position: absolute;
+  top: 7%;
+  left: 92%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.logo {
+  /* position: absolute; */
+  /* float: left; */
+  width: 12%;
+  height: 15%;
+  border-radius: 50%;
 }

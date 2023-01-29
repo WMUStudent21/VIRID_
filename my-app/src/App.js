@@ -1,6 +1,6 @@
 import './App.css';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaDcgA8Yo1o14zdWp6JNYL2N2QTnJiRaU",
@@ -15,13 +15,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
+
 function App() {
+  
+  function sayHello() {
+    alert('Hello');
+  }
+  
   return (
     <div className="App">
+        <div class = "navbar">
+          <img class = "logo" src = {require('./Pictures/Logo.png')} alt = "Error"/> 
+          <button class="btn3" onClick = {sayHello} >Sign in</button>
+          <button class="btn4" onClick = {sayHello} >Contact Us</button>
+        </div>
       <header className="App-header">
       <div class="container">
           <img src = {require('./Pictures/Easy.png')} alt = "Error" />
-          <button class="btn1">Directions</button>
+          <button class="btn1" onClick = {sayHello} >Directions</button>
           <button class="btn2">Submit</button>
       </div>
 
