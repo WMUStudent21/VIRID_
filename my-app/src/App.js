@@ -4,6 +4,7 @@ import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link} from 'react-router-dom';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaDcgA8Yo1o14zdWp6JNYL2N2QTnJiRaU",
@@ -40,7 +41,7 @@ function App() {
             </>
           )}
 
-          <button class="btn4" onClick = {sayHello} >Contact Us</button>
+          <div><Link  to="/add_poi">Add Data</Link></div>
         </div>
       <header className="App-header">
       <div class="container">
