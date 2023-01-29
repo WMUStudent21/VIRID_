@@ -30,18 +30,21 @@ function App() {
     <div className="App">
         <div class = "navbar">
           <img class = "logo" src = {require('./Pictures/Logo.png')} alt = "Error"/>
-          <div id = "right_wrapper"> 
-          <div id = "nav-right">
-          {/* <button class="btn3" onClick = {sayHello} >Sign in</button> */}
+          <div id="left_wrapper">
           {error && <p>Authentication Error</p>}
           {!error && isLoading && <p>Loading...</p>}
           {!error && !isLoading && (
             <>
-              <LoginButton style={{float: 'right'}} class="btn3"/>
-              <LogoutButton style={{float: 'right'}} class="btn3"/>
-              <Profile style={{float: 'right'}}/>
+              <LoginButton style={{float: 'right', backgroundColor: 'white'}} class="btn3"/>
+              <LogoutButton style={{float: 'right', backgroundColor: 'white'}} class="btn3"/>
+              <Profile style={{float: 'left', backgroundColor: 'white'}}/>
             </>
           )}
+          </div>
+          <div id = "right_wrapper"> 
+          <div id = "nav-right">
+          {/* <button class="btn3" onClick = {sayHello} >Sign in</button> */}
+          
 
       <Link  to="/add_poi" style={{ textDecoration: 'none', color: 'black', float: 'right', border: 'solid black', backGroundColor: 'black'}}>Add Data</Link>
       </div>

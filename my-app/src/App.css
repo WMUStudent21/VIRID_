@@ -99,6 +99,11 @@
   background-color: white;
 
 }
+#left_wrapper {
+  position: absolute;
+  left: 150px;
+  top: 30px; 
+}
 #right_wrapper {
   position: absolute;
   top: 30px;
